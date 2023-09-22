@@ -16,5 +16,6 @@ module.exports = {
     plugins: ['react', 'react-hooks', '@typescript-eslint', 'prettier'],
     rules: {
         'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+        'react/react-in-jsx-scope': 'off', // import React from "react" 누락되어도 오류로 취급 X
     },
 };
