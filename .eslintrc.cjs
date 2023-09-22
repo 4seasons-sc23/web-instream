@@ -6,6 +6,9 @@ module.exports = {
         'plugin:react/recommended',
         'plugin:react-hooks/recommended',
         'plugin:@typescript-eslint/recommended',
+        'plugin:import/errors',
+        'plugin:import/warnings',
+        'plugin:import/typescript',
     ],
     ignorePatterns: ['dist', '.eslintrc.cjs'],
     parser: '@typescript-eslint/parser',
@@ -15,7 +18,50 @@ module.exports = {
     },
     plugins: ['react', 'react-hooks', '@typescript-eslint', 'prettier'],
     rules: {
-        'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
         'react/react-in-jsx-scope': 'off', // import React from "react" 누락되어도 오류로 취급 X
+        'import/order': [
+            'error',
+            {
+                'groups': [
+                    'builtin',
+                    'external',
+                    'internal',
+                    'parent',
+                    'sibling',
+                    'index',
+                    'unknown',
+                ],
+                'pathGroups': [
+                    {
+                        pattern: 'react*',
+                        group: 'external',
+                        position: 'before',
+                    },
+                    {
+                        pattern: 'components/*',
+                        group: 'internal',
+                        position: 'after',
+                    },
+                    {
+                        pattern: 'pages/*',
+                        group: 'internal',
+                        position: 'after',
+                    },
+                    {
+                        pattern: 'utils/*',
+                        group: 'internal',
+                        position: 'after',
+                    },
+                    {
+                        pattern: './**/*.scss',
+                        group: 'unknown',
+                    },
+                ],
+                'newlines-between': 'always',
+                'alphabetize': {
+                    order: 'asc',
+                },
+            },
+        ],
     },
 };
