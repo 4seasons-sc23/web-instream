@@ -39,17 +39,33 @@ module.exports = {
                         position: 'before',
                     },
                     {
-                        pattern: 'components/*',
+                        pattern: 'components/atoms/**',
                         group: 'internal',
                         position: 'after',
                     },
                     {
-                        pattern: 'pages/*',
+                        pattern: 'components/molecules/**',
                         group: 'internal',
                         position: 'after',
                     },
                     {
-                        pattern: 'utils/*',
+                        pattern: 'components/organisms/**',
+                        group: 'internal',
+                        position: 'after',
+                    },
+
+                    {
+                        pattern: 'pages/**',
+                        group: 'internal',
+                        position: 'after',
+                    },
+                    {
+                        pattern: 'recoil/**',
+                        group: 'internal',
+                        position: 'after',
+                    },
+                    {
+                        pattern: 'utils/**',
                         group: 'internal',
                         position: 'after',
                     },
@@ -61,7 +77,9 @@ module.exports = {
                 'newlines-between': 'always',
             },
         ],
+        '@typescript-eslint/no-unused-vars': ['warn', { ignoreRestSiblings: true }],
         'react/react-in-jsx-scope': 'off',
+        'no-unused-vars': 'off',
     },
     settings: {
         'import/resolver': {
