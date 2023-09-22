@@ -18,7 +18,8 @@ module.exports = {
     },
     plugins: ['react', 'react-hooks', '@typescript-eslint', 'prettier'],
     rules: {
-        'react/react-in-jsx-scope': 'off', // import React from "react" 누락되어도 오류로 취급 X
+        'import/default': 'off',
+        'import/no-named-as-default-member': 'off',
         'import/order': [
             'error',
             {
@@ -58,10 +59,16 @@ module.exports = {
                     },
                 ],
                 'newlines-between': 'always',
-                'alphabetize': {
-                    order: 'asc',
-                },
             },
         ],
+        'react/react-in-jsx-scope': 'off',
+    },
+    settings: {
+        'import/resolver': {
+            typescript: {},
+            node: {
+                extensions: ['.js', '.jsx', '.ts', '.tsx', 'scss'],
+            },
+        },
     },
 };
