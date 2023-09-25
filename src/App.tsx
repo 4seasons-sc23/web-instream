@@ -1,12 +1,19 @@
-import { useState } from 'react';
+import { Suspense } from 'react';
+import { Route, Routes } from 'react-router-dom';
 
-import Home from './pages/Home';
-import Login from './pages/Login';
+import * as router from './routes';
 
 function App() {
-    const [logined, setLogined] = useState<boolean>(false);
-
-    return <>{!logined ? <Login setLogined={setLogined} /> : <Home />}</>;
+    return (
+        <>
+            <Suspense fallback={<div>Loading...</div>}>
+                <Routes>
+                    <Route path="/" element={<router.Home />} />
+                    <Route path="/login" element={<router.Login />} />
+                </Routes>
+            </Suspense>
+        </>
+    );
 }
 
 export default App;

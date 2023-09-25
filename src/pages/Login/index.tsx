@@ -1,9 +1,11 @@
-import React from 'react';
+import LoginContainer from 'components/organisms/LoginContainer';
 
-interface Props {
-    setLogined: React.Dispatch<React.SetStateAction<boolean>>;
-}
+import styles from './styles.module.scss';
 
-export default function Login({ setLogined }: Props) {
-    return <div>Login</div>;
+export default function Login() {
+    return (
+        <div className={styles.container}>
+            <LoginContainer />
+        </div>
+    );
 }
