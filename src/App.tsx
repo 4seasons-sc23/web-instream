@@ -16,6 +16,8 @@ function App() {
 
                     <Route path="/signin" element={<router.Signin />} />
 
+                    <Route path="/question" element={<router.Question />} />
+
                     {/* <Route path="/find" element={<router.Find />} />
                     <Route path="/info" element={<router.Info />} />
                     <Route path="/question" element={<router.Question />} />
