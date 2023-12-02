@@ -15,10 +15,6 @@ export default function Header() {
         navigate('/signin');
     };
 
-    const onClickSignupButton = () => {
-        navigate('/signup');
-    };
-
     const onClickLogoutButton = () => {
         if (window.confirm('정말 로그아웃 하시겠습니까 ?')) {
             localStorage.removeItem('id');
@@ -45,10 +41,6 @@ export default function Header() {
                     <div className={styles.buttonArea}>
                         <button onClick={onClickSigninButton} className={styles.button}>
                             Sign in
-                        </button>
-                        <div className={styles.divider} />
-                        <button onClick={onClickSignupButton} className={styles.button}>
-                            Sign up
                         </button>
                     </div>
                 )}

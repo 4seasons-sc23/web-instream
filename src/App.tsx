@@ -14,7 +14,6 @@ function App() {
                 <Routes>
                     <Route path="/" element={<router.Home />} />
 
-                    <Route path="/signup" element={<router.Signup />} />
                     <Route path="/signin" element={<router.Signin />} />
 
                     {/* <Route path="/find" element={<router.Find />} />
