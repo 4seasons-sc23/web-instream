@@ -1,11 +1,13 @@
 import { isAxiosError } from 'axios';
+import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
+import PaginationComponent from 'components/organisms/Common/Pagination';
+
 import request from 'utils/axios';
+import { dateForm } from 'utils/dateForm';
 
 import styles from './styles.module.scss';
-import PaginationComponent from 'components/organisms/Common/Pagination';
-import { dateForm } from 'utils/dateForm';
 
 interface IError {
     writer: {
@@ -25,6 +27,8 @@ interface IError {
 }
 
 export default function Question() {
+    const navigate = useNavigate();
+
     const [currentPage, setCurrentPage] = useState<number>(0);
     const [pageCount, setPageCount] = useState<number>(0);
     const [firstView, setFirstView] = useState<boolean>(true);
@@ -69,7 +73,14 @@ export default function Question() {
                                     <tr key={error.question.errorId}>
                                         <td>{error.question.errorId}</td>
                                         <td>{error.writer.userName}</td>
-                                        <td>{error.question.title}</td>
+                                        <td
+                                            style={{ cursor: 'pointer' }}
+                                            onClick={() =>
+                                                navigate(`/question/${error.question.errorId}`)
+                                            }
+                                        >
+                                            {error.question.title}
+                                        </td>
                                         <td>
                                             {error.question.isAnswered === 'Y'
                                                 ? '답변완료'
