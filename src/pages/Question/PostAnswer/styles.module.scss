@@ -9,20 +9,98 @@
     }
 
     button {
-        display: flex;
         gap: 20px;
-        margin-bottom: 20px;
-        padding: 10px 20px;
+        padding: 5px 10px;
         border: none;
-        border-radius: 10px;
+        border-radius: 6px;
         background-color: $navy100;
         color: white;
         cursor: pointer;
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
 
     button:disabled {
         background-color: gray;
         cursor: not-allowed;
     }
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: $navy100;
+    margin-bottom: 80px;
+}
+
+.textBox {
+    display: grid;
+    grid-template-columns: 1fr 10fr;
+}
+
+.divider {
+    border: 0.5px solid $navy100;
+    width: 50%;
+    margin: 20px 0;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.contentContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .buttonArea {
+        width: 50%;
+        // align-self: flex-end;
+        display: flex;
+        gap: 20px;
+        justify-content: flex-end;
+    }
+}
+
+.contentBox {
+    border: 1px solid $navy100;
+    border-radius: 10px;
+    width: calc(50% - 40px);
+    padding: 20px;
+    min-height: 200px;
+}
+
+.textareaBox {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    textarea {
+        width: calc(50% - 40px);
+        padding: 20px;
+        min-height: 200px;
+        resize: none;
+        line-height: 1.8rem;
+    }
+}
+
+.textareaButton {
+    width: 50%;
+    // align-self: flex-end;
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;  
+}
+
+.answerBox {
+    line-height: 1.8;
+}
+
+.answerText {
+    background-color: $navy100;
+    color: white;
+    border-radius: 10px;
+    width: calc(50% - 40px);
+    padding: 20px;
+    min-height: 200px;
+    line-height: 1.8rem;
 }

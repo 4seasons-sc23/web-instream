@@ -78,32 +78,48 @@ export default function PostAnswer() {
 
     return (
         <div className={styles.container}>
-            <div className={styles.buttonArea}>
-                <button onClick={onClickButton}>{!isEdit ? '답변 등록하기' : '취소'}</button>
-            </div>
             <div>
-                <div>question</div>
-                <div>title: {errorData?.question.title}</div>
-                <div>author: {errorData?.writer.userName}</div>
-                <div>content: {errorData?.question.content}</div>
+                <div className={styles.title}>문의내역</div>
+                <div className={styles.textBox}>
+                    <span className={styles.bold}>title</span>
+                    <span>{errorData?.question.title}</span>
+                </div>
+                <div className={styles.divider} />
+                <div className={styles.textBox}>
+                    <span className={styles.bold}>author</span>
+                    <span>{errorData?.writer.userName}</span>
+                </div>
+                <div className={styles.divider} />
+                <div className={styles.contentContainer}>
+                    <span className={styles.bold}>content</span>
+                    <span className={styles.contentBox}>{errorData?.question.content}</span>
+                    <div className={styles.buttonArea}>
+                        <button onClick={onClickButton}>
+                            {!isEdit ? '답변 등록하기' : '취소'}
+                        </button>
+                    </div>
+                </div>
             </div>
-            <div>
-                <div>answer</div>
+            <div className={styles.answerBox}>
+                <div>.</div>
+                <div>.</div>
+                <div>.</div>
+                <div className={styles.bold}>answer</div>
                 {isEdit ? (
-                    <div>
+                    <div className={styles.textareaBox}>
                         <textarea
                             value={inputText}
                             onChange={(e) => setInputText(e.target.value)}
                         />
-                        <button onClick={onClickSubmitButton}>등록</button>
+                        <div className={styles.textareaButton}>
+                            <button onClick={onClickSubmitButton}>등록</button>
+                        </div>
                     </div>
                 ) : (
-                    <div>
-                        {errorData?.answer ? (
-                            <div>{errorData.answer.content}</div>
-                        ) : (
-                            <div>아직 등록된 답변이 없습니다.</div>
-                        )}
+                    <div className={styles.answerText}>
+                        {errorData?.answer
+                            ? `${errorData.answer.content}`
+                            : '아직 등록된 답변이 없습니다.'}
                     </div>
                 )}
             </div>
