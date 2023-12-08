@@ -13,10 +13,10 @@ export default function Sidebar() {
                         <div
                             className="menu-title"
                             onClick={() => {
-                                navigate('/question');
+                                navigate('/billing');
                             }}
                         >
-                            <span>Question</span>
+                            <span>Billing</span>
                         </div>
                     </li>
                 </ul>
@@ -25,10 +25,10 @@ export default function Sidebar() {
                         <div
                             className="menu-title"
                             onClick={() => {
-                                navigate('/billing');
+                                navigate('/question');
                             }}
                         >
-                            <span>Billing</span>
+                            <span>Question</span>
                         </div>
                     </li>
                 </ul>
