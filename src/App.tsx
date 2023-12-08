@@ -20,6 +20,7 @@ function App() {
                     <Route path="/question/:id" element={<router.PostAnswer />} />
 
                     <Route path="/billing" element={<router.Billing />} />
+                    <Route path="/billing/:hostId" element={<router.HostBilling />} />
                 </Routes>
             </Layout>
         </Suspense>

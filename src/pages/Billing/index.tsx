@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { isAxiosError } from 'axios';
 
 import PaginationComponent from 'components/organisms/Common/Pagination';
@@ -17,6 +18,8 @@ interface IBilling {
 }
 
 export default function Billing() {
+    const navigate = useNavigate();
+
     const [currentPage, setCurrentPage] = useState<number>(0);
     const [pageCount, setPageCount] = useState<number>(0);
     const [firstView, setFirstView] = useState<boolean>(true);
@@ -42,7 +45,7 @@ export default function Billing() {
         };
 
         getBillingList();
-    }, [startAt, endAt]);
+    }, [startAt, endAt, currentPage]);
 
     return (
         <>
@@ -51,6 +54,7 @@ export default function Billing() {
                 <input
                     type="date"
                     value={startAt.split('T')[0]}
+                    max={endAt.split('T')[0]}
                     onChange={(e) => setStartAt(new Date(e.target.value).toISOString())}
                 />
                 <span>endAt</span>
@@ -67,7 +71,7 @@ export default function Billing() {
                         <table>
                             <thead>
                                 <tr>
-                                    <th>id</th>
+                                    <th>hostid</th>
                                     <th>name</th>
                                     <th>cost</th>
                                 </tr>
@@ -75,7 +79,12 @@ export default function Billing() {
                             <tbody>
                                 {billingList.map((billing) => (
                                     <tr key={billing.id}>
-                                        <td>{billing.id}</td>
+                                        <td
+                                            style={{ cursor: 'pointer' }}
+                                            onClick={() => navigate(`/billing/${billing.id}`)}
+                                        >
+                                            {billing.id}
+                                        </td>
                                         <td>{billing.name}</td>
                                         <td>{`${Number(billing.cost).toFixed(2)} $`}</td>
                                     </tr>
