@@ -19,17 +19,7 @@ function App() {
                     <Route path="/question" element={<router.Question />} />
                     <Route path="/question/:id" element={<router.PostAnswer />} />
 
-                    {/* <Route path="/find" element={<router.Find />} />
-                    <Route path="/info" element={<router.Info />} />
-                    <Route path="/question" element={<router.Question />} />
-                    <Route path="/question/post/:id" element={<router.PostQuestion />} />
-                    <Route path="/question/:id" element={<router.QuestionContent />} />
-
-                    <Route path="/application" element={<router.Application />} />
-                    <Route path="/session" element={<router.Session />} />
-                    <Route path="/participant" element={<router.Participant />} />
-
-                    <Route path="/billing" element={<router.Billing />} /> */}
+                    <Route path="/billing" element={<router.Billing />} />
                 </Routes>
             </Layout>
         </Suspense>
