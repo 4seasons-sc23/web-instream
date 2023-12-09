@@ -28,7 +28,7 @@ export default function Sidebar() {
                                 navigate('/question');
                             }}
                         >
-                            <span>Question</span>
+                            <span>Inquiry</span>
                         </div>
                     </li>
                 </ul>
