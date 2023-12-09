@@ -95,7 +95,11 @@ export default function PostAnswer() {
                     <span className={styles.contentBox}>{errorData?.question.content}</span>
                     <div className={styles.buttonArea}>
                         <button onClick={onClickButton}>
-                            {!isEdit ? '답변 등록하기' : '취소'}
+                            {!isEdit
+                                ? !errorData?.answer
+                                    ? '답변 등록하기'
+                                    : '답변 수정하기'
+                                : '취소'}
                         </button>
                     </div>
                 </div>
